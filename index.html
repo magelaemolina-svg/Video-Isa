@@ -1,0 +1,29 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sorpresa</title><style>
+:root{--bg:#0b0a0d;--ink:#f7f2f7;--gold:#d4aa56;--vio:#9a5fc0}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif}
+.slide{position:absolute;inset:0;padding:26px 20px 36px;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transform:translateX(20px);pointer-events:none;transition:.4s}
+.slide.active{opacity:1;transform:none;pointer-events:auto}
+h1,h2,p{text-align:center;margin:8px 0}h1{font-size:clamp(38px,10vw,72px);line-height:1}h2{font-size:clamp(27px,7vw,50px)}p{font-size:clamp(18px,5vw,27px);line-height:1.25}
+.gold{color:var(--gold)}.vio{color:#c793e6}.photo{width:min(90vw,650px);max-height:58vh;object-fit:contain;border:9px solid #eee8dc;box-shadow:0 18px 55px #0009;margin:16px 0}
+button{border:2px solid var(--vio);background:transparent;color:white;border-radius:999px;padding:15px 22px;font-size:16px;font-weight:800;margin-top:18px}
+.kicker{color:var(--gold);letter-spacing:.12em;font-weight:800;font-size:13px;text-transform:uppercase;margin-bottom:10px}
+.progress{position:fixed;bottom:0;left:0;height:4px;background:var(--gold);width:0;transition:.3s;z-index:5}
+.final{border:1px solid #3a2c43;border-radius:22px;padding:30px 22px;background:#121015;box-shadow:0 20px 60px #0008;max-width:680px}
+</style></head><body><div id="progress" class="progress"></div>
+<section class="slide active"><div class="kicker">Una pequeña advertencia</div><h1>Dicen que con los años<br><span class="gold">llega la madurez…</span></h1><p>Nosotras tenemos otra teoría.</p><button onclick="next()">😈 TOCÁ PARA EMPEZAR</button></section>
+<section class="slide"><img class="photo" src="foto1.jpg"><h2>Bueno…</h2><button onclick="next()">SEGUÍ →</button></section>
+<section class="slide"><img class="photo" src="foto2.jpg"><h2 class="vio">A nosotras no nos pasó. 😂</h2><button onclick="next()">SEGUÍ →</button></section>
+<section class="slide"><img class="photo" src="foto3.jpg"><p>Y después de tantos años…</p><button onclick="next()">SEGUÍ →</button></section>
+<section class="slide"><img class="photo" src="foto4.jpg"><h2>seguimos acumulando pruebas.</h2><button onclick="next()">SEGUÍ →</button></section>
+<section class="slide"><img class="photo" src="foto5.jpg"><h2>Así que a esta altura…</h2><button onclick="next()">SEGUÍ →</button></section>
+<section class="slide"><img class="photo" src="foto6.jpg"><h2 class="gold">tampoco vamos a intentarlo. 😈</h2><button onclick="next()">UNA MÁS →</button></section>
+<section class="slide"><img class="photo" src="foto7.jpg"><p>Porque al final…</p><h2>nos queda lo que mejor sabemos hacer…</h2><button onclick="next()">¿QUERÉS SABER QUÉ? →</button></section>
+<section class="slide"><h1 class="gold">¡DIVERTIRNOS!! 🤘</h1><p>Y para eso… tenemos un plan.</p><button onclick="next()">DESCUBRÍ TU REGALO 🎟</button></section>
+<section class="slide"><div class="final"><div class="kicker">11 · 12 · 2026</div><h1>🔥 LA FIESTA<br><span class="gold">DE LA X</span> 🔥</h1><h2>Y sí…<br><span class="vio">vos venís.</span> 😈</h2><p>🎟️ Tu entrada está a salvo.</p></div><button onclick="restart()">VER DE NUEVO ↺</button></section>
+<script>
+const s=[...document.querySelectorAll('.slide')];let i=0;
+function show(n){s[i].classList.remove('active');i=n;s[i].classList.add('active');document.getElementById('progress').style.width=(i/(s.length-1)*100)+'%'}
+function next(){if(i<s.length-1)show(i+1)} function restart(){show(0)}
+</script></body></html>
